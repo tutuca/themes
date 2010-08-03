@@ -1,0 +1,116 @@
+<?xml version="1.0"?>
+
+<metacity_theme>
+  <info>
+    <name>No-Title</name>
+    <author>Jean Schurger &lt;jean@schurger.org&gt;</author>
+    <copyright>&#194; 2008 Jean Schurger</copyright>
+    <date>November, 2008</date>
+    <description>Based on 'Glider' theme from Link Dupont</description>
+  </info>
+
+  <frame_geometry name="border" has_title="false">
+    <distance name="left_width" value="4"/>
+    <distance name="right_width" value="4"/>
+    <distance name="bottom_height" value="4"/>
+    <distance name="left_titlebar_edge" value="0"/>
+    <distance name="right_titlebar_edge" value="0"/>
+    <distance name="button_width" value="0"/>
+    <distance name="button_height" value="0"/>
+    <distance name="title_vertical_pad" value="4"/>
+    <border name="title_border" left="0" right="0" top="0" bottom="0"/>
+    <border name="button_border" left="0" right="0" top="0" bottom="0"/>
+  </frame_geometry>
+
+  <draw_ops name="bevel">
+    <rectangle color="gtk:dark[SELECTED]" filled="false"
+               x="1" y="1"
+               width="width - 3"
+               height="height - 3"/>
+    <rectangle color="shade/gtk:light[SELECTED]/1.2" filled="false"
+               x="1" y="1"
+               width="width - 4"
+               height="height - 4"/>
+    <rectangle color="gtk:bg[SELECTED]" filled="true"
+               x="2" y="2"
+               width="width - 4"
+               height="height - 4"/>
+    <rectangle color="#000000" filled="false"
+	       x="0" y="0"
+	       width="width - 1"
+	       height="height - 1"/>
+  </draw_ops>
+  
+  <draw_ops name="bevel_unfocused">
+    <rectangle color="gtk:dark[NORMAL]" filled="false"
+               x="1" y="1"
+               width="width - 3"
+               height="height - 3"/>
+    <rectangle color="shade/gtk:light[NORMAL]/1.2" filled="false"
+               x="1" y="1"
+               width="width - 4"
+               height="height - 4"/>
+    <rectangle color="gtk:bg[NORMAL]" filled="true"
+               x="2" y="2"
+               width="width - 4"
+               height="height - 4"/>
+    <rectangle color="#000000" filled="false"
+	       x="0" y="0"
+	       width="width - 1"
+	       height="height - 1"/>
+  </draw_ops>
+
+
+  <draw_ops name="blank">
+  </draw_ops>
+
+  <frame_style name="border" geometry="border">
+    <piece position="entire_background" draw_ops="bevel"/>
+    <piece position="title" draw_ops="blank"/>
+    <button function="close" state="normal" draw_ops="blank"/>
+    <button function="close" state="pressed" draw_ops="blank"/>
+    <button function="maximize" state="normal" draw_ops="blank"/>
+    <button function="maximize" state="pressed" draw_ops="blank"/>
+    <button function="minimize" state="normal" draw_ops="blank"/>
+    <button function="minimize" state="pressed" draw_ops="blank"/>
+    <button function="menu" state="normal" draw_ops="blank"/>
+    <button function="menu" state="pressed" draw_ops="blank"/>
+  </frame_style>
+  
+  <frame_style name="border_unfocused" geometry="border">
+    <piece position="entire_background" draw_ops="bevel_unfocused"/>
+    <piece position="title" draw_ops="blank"/>
+    <button function="close" state="normal" draw_ops="blank"/>
+    <button function="close" state="pressed" draw_ops="blank"/>
+    <button function="maximize" state="normal" draw_ops="blank"/>
+    <button function="maximize" state="pressed" draw_ops="blank"/>
+    <button function="minimize" state="normal" draw_ops="blank"/>
+    <button function="minimize" state="pressed" draw_ops="blank"/>
+    <button function="menu" state="normal" draw_ops="blank"/>
+    <button function="menu" state="pressed" draw_ops="blank"/>
+  </frame_style>
+  
+  <frame_style_set name="border">
+    <frame focus="yes" state="normal" resize="both" style="border"/>
+    <frame focus="no" state="normal" resize="both" style="border_unfocused"/>
+    <frame focus="yes" state="maximized" style="border"/>
+    <frame focus="no" state="maximized" style="border_unfocused"/>
+    <frame focus="yes" state="shaded" style="border"/>
+    <frame focus="no" state="shaded" style="border_unfocused"/>
+    <frame focus="yes" state="maximized_and_shaded" style="border"/>
+    <frame focus="no" state="maximized_and_shaded" style="border_unfocused"/>
+  </frame_style_set>
+  
+  <window type="normal" style_set="border"/>
+  <window type="dialog" style_set="border"/>
+  <window type="modal_dialog" style_set="border"/>
+  <window type="menu" style_set="border"/>
+  <window type="utility" style_set="border"/>
+  <window type="border" style_set="border"/>
+  
+  <menu_icon function="close" state="normal" draw_ops="blank"/>
+  <menu_icon function="maximize" state="normal" draw_ops="blank"/>
+  <menu_icon function="unmaximize" state="normal" draw_ops="blank"/>
+  <menu_icon function="minimize" state="normal" draw_ops="blank"/>
+  
+</metacity_theme>
