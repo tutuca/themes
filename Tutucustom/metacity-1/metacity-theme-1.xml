@@ -23,41 +23,17 @@
   </frame_geometry>
 
   <draw_ops name="bevel">
-    <rectangle color="gtk:dark[SELECTED]" filled="false"
-               x="1" y="1"
-               width="width - 3"
-               height="height - 3"/>
-    <rectangle color="shade/gtk:light[SELECTED]/1.2" filled="false"
-               x="1" y="1"
-               width="width - 4"
-               height="height - 4"/>
     <rectangle color="gtk:bg[SELECTED]" filled="true"
-               x="2" y="2"
-               width="width - 4"
-               height="height - 4"/>
-    <rectangle color="shade/gtk:dark[SELECTED]/1.2" filled="false"
 	       x="0" y="0"
-	       width="width - 1"
-	       height="height - 1"/>
+	       width="width"
+	       height="height"/>
   </draw_ops>
   
   <draw_ops name="bevel_unfocused">
-    <rectangle color="gtk:dark[NORMAL]" filled="false"
-               x="1" y="1"
-               width="width - 3"
-               height="height - 3"/>
-    <rectangle color="shade/gtk:light[NORMAL]/1.2" filled="false"
-               x="1" y="1"
-               width="width - 4"
-               height="height - 4"/>
-    <rectangle color="gtk:bg[NORMAL]" filled="true"
-               x="2" y="2"
-               width="width - 4"
-               height="height - 4"/>
-    <rectangle color="shade/gtk:light[NORMAL]/1.2" filled="false"
+    <rectangle color="shade/gtk:dark[NORMAL]/1.2" filled="true"
 	       x="0" y="0"
-	       width="width - 1"
-	       height="height - 1"/>
+	       width="width"
+	       height="height"/>
   </draw_ops>
 
 
