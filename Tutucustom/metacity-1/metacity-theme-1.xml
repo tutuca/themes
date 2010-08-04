@@ -35,7 +35,7 @@
                x="2" y="2"
                width="width - 4"
                height="height - 4"/>
-    <rectangle color="#000000" filled="false"
+    <rectangle color="shade/gtk:dark[SELECTED]/1.2" filled="false"
 	       x="0" y="0"
 	       width="width - 1"
 	       height="height - 1"/>
@@ -54,7 +54,7 @@
                x="2" y="2"
                width="width - 4"
                height="height - 4"/>
-    <rectangle color="#000000" filled="false"
+    <rectangle color="shade/gtk:light[NORMAL]/1.2" filled="false"
 	       x="0" y="0"
 	       width="width - 1"
 	       height="height - 1"/>

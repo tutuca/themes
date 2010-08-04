@@ -75,6 +75,7 @@ style "murrine-default"
 	{
 		animation           = TRUE  # FALSE = disabled, TRUE = enabled
 		arrowstyle          = 1
+		border_shades       = {1.0, 0.6}
 		colorize_scrollbar  = FALSE  # FALSE = disabled, TRUE = enabled
 		contrast            = 0.6   # 0.8 for less contrast, more than 1.0 for more contrast on borders
 		focus_color         = shade (1.5, @selected_bg_color)
