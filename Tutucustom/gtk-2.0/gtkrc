@@ -1,11 +1,11 @@
-# Ubuntu Human-Murrine Colorscheme
 #
 # Authors:
 # Kenneth Wimer <kwwii@ubuntu.com>
 # Conn O'Griofa <connogriofa@gmail.com>
-#
+# Matías Iturburu <maturburu@gmail.com>
 # Feel free to modify and share!
-gtk_color_scheme = "fg_color:#101010\nbg_color:#DDDDDD\nbase_color:#FFF\ntext_color:#1A1A1A\nselected_bg_color:#333333\nselected_fg_color:#FFF\ntooltip_bg_color:#F5F5B5\ntooltip_fg_color:#000"
+
+gtk_color_scheme = "fg_color:#101010\nbg_color:#DDDDDD\nbase_color:#FFF\ntext_color:#1A1A1A\nselected_bg_color:#560E7E\nselected_fg_color:#FFF\ntooltip_bg_color:#F5F5B5\ntooltip_fg_color:#000"
 gtk-icon-sizes = "panel-menu=24,24:gtk-button=16,16"
 include "panel.rc"
 
@@ -93,13 +93,14 @@ style "murrine-default"
 		menuitemstyle       = 1     # 0 = flat, 1 = glassy, 2 = striped
 		menustyle           = 0     # 0 = no vertical menu stripe, 1 = display vertical menu stripe
 		progressbarstyle    = 2     # 0 = no stripes, 1 = diagonal stripes, 2 = vertical stripes 
-		reliefstyle	        = 2     # 0 = flat, 1 = inset, 2 = shadow
+		reliefstyle	        = 3     # 0 = flat, 1 = inset, 2 = shadow
 		rgba		        = FALSE # FALSE = disabled, TRUE = enabled
 		roundness           = 2     # 0 = squared, 1 = old default, more will increase roundness
 		scrollbarstyle      = 2     # 0 = nothing, 1 = circles, 2 = handles, 3 = diagonal stripes, 4 = diagonal stripes and handles, 5 = horizontal stripes, 6 = horizontal stripes and handles
 		sliderstyle         = 0     # 0 = nothing added, 1 = handles
 		stepperstyle        = 1     # 0 = standard, 1 = integrated stepper handles, 2 = unknown
 		toolbarstyle	    = 2     # 0 = flat, 1 = glassy, 2 = gradient
+		separatorstyle      = 1
 	}
 }
 
