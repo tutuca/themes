@@ -19,7 +19,7 @@ setopt extendedglob
 unsetopt caseglob
 
 # Normal aliases
-alias ls='ls --color=auto -F'
+alias ls='ls --color=auto'
 alias lsd='ls -ld *(-/DN)'
 alias lsa='ls -ld .*'
 alias f='find |grep'
@@ -39,10 +39,16 @@ zstyle ':completion:*' completer _complete _match _approximate
 zstyle ':completion:*:match:*' original only
 zstyle ':completion:*:approximate:*' max-errors 1 numeric
 zstyle ':completion:*' squeeze-slashes true
-
+zstyle ':completion:*' menu select
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 zstyle ':completion:*' list-colors "=(#b) #([0-9]#)*=36=31"
 
 zstyle ':completion:*' auto-description 'specify: %d'
 
+
+case $TERM in
+(xterm*)
+    function precmd () { print -Pn "\e]0;%n@%m:%~\a" }
+;;
+esac
 
