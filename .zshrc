@@ -7,8 +7,6 @@ HISTFILE=~/.history
 # Remember about a years worth of history (AWESOME)
 SAVEHIST=10000
 HISTSIZE=10000
-setopt APPEND_HISTORY
-setopt SHARE_HISTORY
 
 setopt incappendhistory 
 setopt sharehistory
