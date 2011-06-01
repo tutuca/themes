@@ -1,47 +1,49 @@
-autoload -U compinit promptinit
+# Prompt
+autoload -U promptinit && promptinit
+prompt="%n@%m:%~$ "
+
+# Completion
+autoload -Uz compinit
 compinit
-promptinit
-prompt redhat
 
-HISTFILE=~/.history
-# Remember about a years worth of history (AWESOME)
-SAVEHIST=10000
-HISTSIZE=10000
-
-setopt incappendhistory 
-setopt sharehistory
-setopt extendedhistory
-setopt completeinword
-setopt extendedglob
-
-unsetopt caseglob
-
-# Normal aliases
-alias ls='ls --color=auto'
-alias lsd='ls -ld *(-/DN)'
-alias lsa='ls -ld .*'
-alias f='find |grep'
-alias c="clear"
-alias dir='ls -1'
-alias grep='grep --color=auto'
-alias fgrep='fgrep --color=auto'
-alias egrep='egrep --color=auto'
-alias ack=ack-grep
-alias smtest='python -m smtpd -n -c DebuggingServer localhost:1025'
-alias spill=~/bin/spill.py
-
+zstyle ':completion:*' completer _expand _complete _ignored _correct _approximate
+zstyle ':completion:*' matcher-list '' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}'
+zstyle ':completion:*:approximate:*' max-errors 1 numeric
+zstyle ':completion:*' list-colors "=(#b) #([0-9]#)*=36=31"
 zstyle ':completion:*' use-cache on
 zstyle ':completion:*' cache-path ~/.zsh/cache
+zstyle :compinstall filename '/home/tutuca/.zshrc'
 
-zstyle ':completion:*' completer _complete _match _approximate
-zstyle ':completion:*:match:*' original only
-zstyle ':completion:*:approximate:*' max-errors 1 numeric
-zstyle ':completion:*' squeeze-slashes true
-zstyle ':completion:*' menu select
-zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
-zstyle ':completion:*' list-colors "=(#b) #([0-9]#)*=36=31"
+[ -f ~/.ssh/config ] && : ${(A)ssh_config_hosts:=${${${${(@M)${(f)"$(<~/.ssh/config)"}:#Host *}#Host }:#*\**}:#*\?*}}
+[ -f ~/.ssh/known_hosts ] && : ${(A)ssh_known_hosts:=${${${(f)"$(<$HOME/.ssh/known_hosts)"}%%\ *}%%,*}}
 
-zstyle ':completion:*' auto-description 'specify: %d'
+zstyle ':completion:*:*:*' hosts $ssh_config_hosts $ssh_known_hosts
+
+zstyle ':completion:*:(rm|kill|diff):*' ignore-line yes
+
+# Lines configured by zsh-newuser-install
+HISTFILE=~/.histfile
+HISTSIZE=1000
+SAVEHIST=1000
+
+# Keys
+bindkey -e
+bindkey ';5A' up-line-or-history
+bindkey ';5B' down-line-or-history
+bindkey ';5D' emacs-backward-word
+bindkey ';5C' emacs-forward-word
+
+# Aliases
+alias ls='ls --color=auto'
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+alias ack='ack-grep -i'
+alias smtest='python -m smtpd -n -c DebuggingServer localhost:1025'
+
+# Add an "alert" alias for long running commands.  Use like so:
+#   sleep 10; alert
+alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
 
 case $TERM in
@@ -49,4 +51,3 @@ case $TERM in
     function precmd () { print -Pn "\e]0;%n@%m:%~\a" }
 ;;
 esac
-
