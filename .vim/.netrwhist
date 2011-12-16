@@ -1,5 +1,11 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =3
+let g:netrw_dirhist_cnt =9
 let g:netrw_dirhist_1='/usr/share/X11/xorg.conf.d'
 let g:netrw_dirhist_2='/usr/share/X11'
 let g:netrw_dirhist_3='/usr/share/X11/xorg.conf.d'
+let g:netrw_dirhist_4='/home/tutuca/venvs/ltmo/src/ltmo/ltmo'
+let g:netrw_dirhist_5='/home/tutuca/venvs/ltmo/src/ltmo'
+let g:netrw_dirhist_6='/home/tutuca/Proyectos/ltmo'
+let g:netrw_dirhist_7='/home/tutuca/Proyectos/ltmo/ltmo'
+let g:netrw_dirhist_8='/home/tutuca/Proyectos/sitseg/docus'
+let g:netrw_dirhist_9='/usr/local/share'
