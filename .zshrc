@@ -36,18 +36,23 @@ bindkey ';5C' emacs-forward-word
 # Aliases
 alias ls='ls --color=auto'
 alias ll='ls -alF'
+alias '.'='source'
 alias la='ls -A'
 alias l='ls -CF'
-alias ack='ack-grep -i'
+alias ack='ack-grep'
+alias less='less -X'
 alias smtest='python -m smtpd -n -c DebuggingServer localhost:1025'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
+source ~/Recursos/z/z.sh
+
 
 case $TERM in
 (xterm*)
-    function precmd () { print -Pn "\e]0;%n@%m:%~\a" }
+function precmd () { print -Pn "\e]0;%n@%m:%~\a" }
 ;;
 esac
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # This loads RVM into a shell session.

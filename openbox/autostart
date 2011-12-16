@@ -1,0 +1,4 @@
+gnome-settings-daemon &
+nitrogen --restore &
+conky &
+

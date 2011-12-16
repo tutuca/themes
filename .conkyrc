@@ -1,0 +1,26 @@
+update_interval 1
+total_run_times 0
+net_avg_samples 1
+cpu_avg_samples 1
+imlib_cache_size 0
+double_buffer yes
+no_buffers yes
+format_human_readable
+use_xft yes
+xftfont Existence:size=8
+override_utf8_locale yes
+text_buffer_size 2048
+own_window_class Conky
+own_window yes
+own_window_type override
+own_window_transparent yes
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+alignment bottom_right
+gap_x 40
+gap_y 40
+minimum_size 290 200
+draw_shades no
+default_color ffffff
+TEXT
+${voffset 15}${offset 143}${font Iconsolata:pixelsize=160}${time %I:%M}${font}${if_match ${time %H}<12}AM${else}${if_match ${time %H}>12}PM${endif}${endif}${font}
+${voffset 30}${offset 155}${font Droid Sans:pixelsize=30}${alignr}${time %Y %A, %B %d}
