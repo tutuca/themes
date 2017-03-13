@@ -1,58 +1,68 @@
-# Prompt
-autoload -U promptinit && promptinit
-prompt="%n@%m:%~$ "
+# Path to your oh-my-zsh installation.
+export ZSH=/home/matias/.oh-my-zsh
 
-# Completion
-autoload -Uz compinit
-compinit
+# Set name of the theme to load.
+# Look in ~/.oh-my-zsh/themes/
+# Optionally, if you set this to "random", it'll load a random theme each
+# time that oh-my-zsh is loaded.
+ZSH_THEME="agnoster"
 
-zstyle ':completion:*' completer _expand _complete _ignored _correct _approximate
-zstyle ':completion:*' matcher-list '' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}'
-zstyle ':completion:*:approximate:*' max-errors 1 numeric
-zstyle ':completion:*' list-colors "=(#b) #([0-9]#)*=36=31"
-zstyle ':completion:*' use-cache on
-zstyle ':completion:*' cache-path ~/.zsh/cache
-zstyle :compinstall filename '/home/tutuca/.zshrc'
+# Uncomment the following line to enable command auto-correction.
+ENABLE_CORRECTION="true"
 
-[ -f ~/.ssh/config ] && : ${(A)ssh_config_hosts:=${${${${(@M)${(f)"$(<~/.ssh/config)"}:#Host *}#Host }:#*\**}:#*\?*}}
-[ -f ~/.ssh/known_hosts ] && : ${(A)ssh_known_hosts:=${${${(f)"$(<$HOME/.ssh/known_hosts)"}%%\ *}%%,*}}
+# Uncomment the following line to display red dots whilst waiting for completion.
+# COMPLETION_WAITING_DOTS="true"
 
-zstyle ':completion:*:*:*' hosts $ssh_config_hosts $ssh_known_hosts
+# Uncomment the following line if you want to change the command execution time
+# stamp shown in the history command output.
+# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# HIST_STAMPS="mm/dd/yyyy"
 
-zstyle ':completion:*:(rm|kill|diff):*' ignore-line yes
-
-# Lines configured by zsh-newuser-install
-HISTFILE=~/.histfile
-HISTSIZE=1000
-SAVEHIST=1000
-
-# Keys
-bindkey -e
-bindkey ';5A' up-line-or-history
-bindkey ';5B' down-line-or-history
-bindkey ';5D' emacs-backward-word
-bindkey ';5C' emacs-forward-word
-
-# Aliases
-alias ls='ls --color=auto'
-alias ll='ls -alF'
-alias '.'='source'
-alias la='ls -A'
-alias l='ls -CF'
-alias ack='ack-grep'
-alias less='less -X'
-alias smtest='python -m smtpd -n -c DebuggingServer localhost:1025'
-
-# Add an "alert" alias for long running commands.  Use like so:
-#   sleep 10; alert
-alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
-
-source ~/Recursos/z/z.sh
+# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
+# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+# Add wisely, as too many plugins slow down shell startup.
 
 
-case $TERM in
-(xterm*)
-function precmd () { print -Pn "\e]0;%n@%m:%~\a" }
-;;
-esac
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # This loads RVM into a shell session.
+# User configuration
+
+export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin"
+export PATH="$PATH:$HOME/.npm-packages/bin:$(npm bin)"
+# export MANPATH="/usr/local/man:$MANPATH"
+
+source $ZSH/oh-my-zsh.sh
+source /usr/share/virtualenvwrapper/virtualenvwrapper.sh
+
+# You may need to manually set your language environment
+# export LANG=en_US.UTF-8
+
+# Preferred editor for local and remote sessions
+# if [[ -n $SSH_CONNECTION ]]; then
+#   export EDITOR='vim'
+# else
+#   export EDITOR='mvim'
+# fi
+
+# Compilation flags
+# export ARCHFLAGS="-arch x86_64"
+
+# ssh
+# export SSH_KEY_PATH="~/.ssh/dsa_id"
+
+# Set personal aliases, overriding those provided by oh-my-zsh libs,
+# plugins, and themes. Aliases can be placed here, though oh-my-zsh
+# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# For a full list of active aliases, run `alias`.
+#
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
+alias isomount="sudo mount -o loop $1 /media/cdrom"
+alias less="less -X"  # exit without clearing buffer
+alias qp="ps aux | ag $1"  # filter process list
+alias smtest="python -m smtpd -n -c DebuggingServer localhost:1025"  # test smpt server
+alias httest="python3 -m http.server"  # test http server
+alias cleanpyc="find . -name \*.pyc -delete – "
+WORKON_HOME="$HOME/.venvs"
+PROJECT_HOME="$HOME/Proyectos"
+PIP_DOWNLOAD_CACHE=$HOME/.cache/pip

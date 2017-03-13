@@ -1,0 +1,23 @@
+"*":
+  core:
+    packagesWithKeymapsDisabled: [
+      "graphviz-preview"
+    ]
+    telemetryConsent: "no"
+  editor:
+    fontFamily: "Knack Nerd Font"
+    showInvisibles: true
+  "exception-reporting":
+    userId: "512e8508-e550-c315-e79a-c08db535b974"
+  minimap:
+    plugins:
+      "find-and-replace": true
+      "find-and-replaceDecorationsZIndex": 0
+      "git-diff": true
+      "git-diffDecorationsZIndex": 0
+      linter: true
+      linterDecorationsZIndex: 0
+      pigments: true
+      pigmentsDecorationsZIndex: 0
+  welcome:
+    showOnStartup: false
